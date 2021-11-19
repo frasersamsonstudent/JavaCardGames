@@ -6,7 +6,7 @@ import CardGame.Card;
 import java.util.*;
 
 public class Hand{
-    private ArrayList<Card> handOfCards;
+    protected ArrayList<Card> handOfCards;
 
 
     public Hand(){
@@ -16,14 +16,14 @@ public class Hand{
     public Hand(String[] listOfCards){
         this.handOfCards = new ArrayList<Card>();
         for (String card : listOfCards){
-            this.handOfCards.add(Card.createCard(card));
+            this.handOfCards.add(new Card(card));
         }
     }
 
     public Hand(String listOfCards){
         this.handOfCards = new ArrayList<Card>();
         for (String card : listOfCards.split(",")){
-            this.handOfCards.add(Card.createCard(card));
+            this.handOfCards.add(new Card(card));
         }
     }
 
@@ -46,7 +46,7 @@ public class Hand{
             int indexOfCard = Integer.parseInt(cardShortCode);
             card = playACard(indexOfCard);
         } else {
-            card = Card.createCard(cardShortCode);
+            card = new Card(cardShortCode);
             if (!playACard(card)) {
                 card = null;
             }
@@ -120,13 +120,5 @@ public class Hand{
             System.out.println(e.getMessage());
         }
 
-    }
-
-    public static Hand createHand(String[] listOfCards){
-        Hand hand = new Hand();
-        for (String card : listOfCards){
-            hand.add(Card.createCard(card));
-        }
-        return hand;
     }
 }

@@ -15,6 +15,11 @@ public class Card {
         this.rank = rank;
     }
 
+    public Card(String card){
+        this.suit = Suit.getSuit(card.substring(0,1));
+        this.rank = CardRank.getCardRank(card.substring(1,card.length()));
+    }
+
     public Suit getSuit(){
         return suit;
     }
@@ -33,11 +38,6 @@ public class Card {
 
     public String toString(){
         return suit + rank.toString();
-    }
-
-    public static Card createCard(String shortCode) {
-        Card card = new Card(Suit.getSuit(shortCode.substring(0,1)),CardRank.getCardRank(shortCode.substring(1,shortCode.length())));
-        return card;
     }
 
 }

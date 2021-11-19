@@ -25,7 +25,7 @@ public class CardGame {
     }
 
     public CardGame(){
-        this.deck = Deck.getInstance();
+        this.deck = new Deck();
         this.userInput = new ConsoleInput();
         this.userOutput = new ConsoleOutput();
         this.players = new ArrayList<Player>();
@@ -60,7 +60,7 @@ public class CardGame {
         boolean allCards = false;
         int noOfCards;
         if (this.noOfCards == 0) {
-            noOfCards = (int) Math.floor(deck.getNumberOfCards()/players.size());
+            noOfCards = (int) Math.floor(deck.size()/players.size());
             allCards = true;
         } else {
             noOfCards = this.noOfCards;
@@ -72,7 +72,7 @@ public class CardGame {
         }
         if (allCards){
             for (Player player: players){
-                if (deck.getNumberOfCards() > 0){
+                if (deck.size() > 0){
                     player.getHand().add(deck.playACard());
                 }
             }
@@ -82,7 +82,7 @@ public class CardGame {
     public Hand dealHand(Hand hand, int noOfCards){
 
         for (int cardCounter=0;cardCounter<noOfCards;cardCounter++){
-            if (deck.getNumberOfCards() > 0) {
+            if (deck.size() > 0) {
                 hand.add(deck.playACard());
             }
         }
