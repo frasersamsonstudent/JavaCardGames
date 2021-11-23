@@ -6,25 +6,12 @@ import java.util.Scanner;
 
 public class ConsoleInput {
     private Scanner userInput = new Scanner(System.in);
-    private List<String> inputValues = new ArrayList<String>();
 
-    public void addInputValue(String inputValue) {
-        this.inputValues.add(inputValue);
-    }
-
-    public void clear(){
-        this.inputValues.clear();
-    }
 
     public String getInputString(){
-        String result = "";
-        if (inputValues.size() == 0) {
-            result = userInput.nextLine();
-        } else {
-            result = inputValues.remove(0);
-        }
-        return result;
+        return userInput.nextLine();
     }
+
     public int getInputInt(){
         int result;
         result = -1;
