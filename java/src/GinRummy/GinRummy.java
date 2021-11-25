@@ -7,6 +7,7 @@ import Player.PlayerType;
 import CardGame.Card;
 import CardGame.Suit;
 import CardGame.CardRank;
+import CardGame.Deck;
 
 import java.util.ArrayList;
 
@@ -95,7 +96,7 @@ public class GinRummy extends CardGame {
         }
     }
 
-    protected void humanPlaysHand(Player player){
+    protected void userPlays(Player player, Deck deck){
         help();
         String userChoice = userInput.getInputString();
         Card card;
@@ -112,7 +113,7 @@ public class GinRummy extends CardGame {
         discardCards.add(player.getHand().playACard(userCard));
     }
 
-    protected void computerPlaysHand(Player player){
+    protected void computerPlays(Player player, Deck deck){
         Card card = null;
         boolean playFromDeck = true;
         if (discardCards.size() > 0) {
@@ -132,14 +133,6 @@ public class GinRummy extends CardGame {
 
     }
 
-    public void playerPlaysHand(Player player){
-        if (player.getPlayerType() == PlayerType.USER){
-            humanPlaysHand(player);
-        } else {
-            computerPlaysHand(player);
-        }
-
-    }
 
     public int scoreHand(Hand hand){
         Hand newHand = hand.copy();

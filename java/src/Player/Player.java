@@ -10,6 +10,7 @@ public class Player {
     private Hand hand;
     private PlayerType playerType;
     private String name;
+    private Boolean winner;
 
 
     public Player(PlayerType playerType, String name,Integer levelOfRisk){
@@ -23,6 +24,15 @@ public class Player {
             risk = levelOfRisk;
         }
         this.levelOfRisk = risk;
+        this.winner = false;
+    }
+
+    public void setWinner(Boolean winner){
+        this.winner = winner;
+    }
+
+    public Boolean getWinner(){
+        return winner;
     }
 
     public boolean hasHand(){
