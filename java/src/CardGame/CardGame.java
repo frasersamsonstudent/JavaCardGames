@@ -12,14 +12,21 @@ public class CardGame {
     protected Integer noOfCards = 2;
     protected ConsoleInput userInput;
     protected Output userOutput;
+    protected Deck deck;
 
     public void setNoOfCards(Integer noOfCards) {
         this.noOfCards = noOfCards;
     }
 
+    public CardGame(String deckOverride){
+        this.userInput = new ConsoleInput();
+        this.userOutput = new ConsoleOutput();
+        this.deck = new Deck(deckOverride);
+    }
     public CardGame(){
         this.userInput = new ConsoleInput();
         this.userOutput = new ConsoleOutput();
+        this.deck = new Deck();
     }
 
     protected Player createHumanPlayer(){
@@ -87,13 +94,6 @@ public class CardGame {
         return hand;
     }
 
-
-    protected Deck initiateDeck(){
-        Deck deck = new Deck();
-        deck.shuffleDeck();
-        return deck;
-    }
-
     protected void playerPlaysHand(Player player, Deck deck){
         if (player.getPlayerType() == PlayerType.USER){
             userPlays(player, deck);
@@ -112,7 +112,6 @@ public class CardGame {
 
     protected void play(){
         ArrayList<Player> players = initiatePlayers();
-        Deck deck = initiateDeck();
         setNoOfCards(noOfCards);
         dealCards(deck, players);
         Integer counterOfPlayers = 0;

@@ -8,6 +8,12 @@ public class Deck extends Hand{
 
     private static HashMap< int[] , Card> cardHashMap;
 
+    private Boolean override = false;
+
+    public Deck(String deckOverride){
+        super(deckOverride);
+        this.override = true;
+    }
     public Deck(){
         super();
         generateDeck();
@@ -24,7 +30,9 @@ public class Deck extends Hand{
     }
 
     public void shuffleDeck(){
-        Collections.shuffle(this.handOfCards);
+        if (! override) {
+            Collections.shuffle(this.handOfCards);
+        }
     }
 
     public static void main(String[ ] args) {
