@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleInput {
+public class ConsoleInput implements Input {
     private Scanner userInput = new Scanner(System.in);
 
 

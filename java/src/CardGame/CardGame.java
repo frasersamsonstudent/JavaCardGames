@@ -1,6 +1,7 @@
 package CardGame;
 import Display.ConsoleOutput;
 import Display.ConsoleInput;
+import Display.Input;
 import Display.Output;
 import Player.Player;
 import Player.PlayerType;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class CardGame {
 
     protected Integer noOfCards = 2;
-    protected ConsoleInput userInput;
+    protected Input userInput;
     protected Output userOutput;
     protected Deck deck;
 
