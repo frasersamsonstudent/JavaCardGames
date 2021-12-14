@@ -78,6 +78,14 @@ public class BlackJack extends CardGame {
         return score;
     }
 
+    protected void outputHand(Hand hand) {
+        userOutput.outputHand(hand);
+    }
+
+    protected void displayPlayer(Player player, String info) {
+        super.displayPlayer(player, info);
+    }
+
     public static void main(String[ ] args) {
         BlackJack blackJack = new BlackJack();
         blackJack.play();

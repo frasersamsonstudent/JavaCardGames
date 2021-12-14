@@ -155,6 +155,15 @@ public class CardGame {
         return player.getWinner();
     }
 
+    public void setUserInput(Input userInput) {
+        this.userInput = userInput;
+    }
+
+    public void setUserOutput(Output userOutput) {
+        this.userOutput = userOutput;
+    }
+
+
     public static void main(String[ ] args) {
         CardGame cardGame = new CardGame();
         cardGame.play();

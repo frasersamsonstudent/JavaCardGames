@@ -20,9 +20,11 @@ public class ConsoleOutput implements Output {
     public void outputHand(Hand hand){
         output(hand.toString());
     }
+
     public void outputHands(ArrayList<Hand> hands){
         for (Hand hand : hands){
             output(hand.toString());
         }
     }
+
 }
