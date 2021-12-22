@@ -4,6 +4,7 @@ import CardGame.Deck;
 import CardGame.Hand;
 import Player.Player;
 import Player.PlayerType;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -38,4 +39,11 @@ public class UnitTests {
     }
 
 
+    @org.junit.jupiter.api.Test
+    void testDeck() {
+        Deck testDeck = new Deck();
+        assertEquals(52, testDeck.getHandOfCards().size());
+    }
+
 }
+

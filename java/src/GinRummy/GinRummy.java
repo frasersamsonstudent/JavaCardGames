@@ -11,7 +11,7 @@ import CardGame.Deck;
 
 import java.util.ArrayList;
 
-public class GinRummy extends CardGame {
+public class  GinRummy extends CardGame {
 
     private Hand discardCards = new Hand();
     public int numberOfCards = 7;
