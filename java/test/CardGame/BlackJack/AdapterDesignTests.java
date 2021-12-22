@@ -1,14 +1,11 @@
 package BlackJack;
 
-import BlackJack.BlackJack;
-import CardGame.CardGame;
 import CardGame.Hand;
 import Display.TestInput;
 import Display.TestOutput;
 import Player.Player;
 import Player.PlayerType;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -136,6 +133,19 @@ public class AdapterDesignTests {
         assertEquals(info + " name is " + playerName, output.getOutputValue());
         assertEquals(info + " score is " + 36, output.getOutputValue());
         assertEquals(info + " hand is " + cards, output.getOutputValue());
-
     }
+
+    @org.junit.jupiter.api.Test
+    public void initiatePlayers() {
+        // Initialise game
+        BlackJackGame gameInstanceForTest = getGameInstanceForTest();
+        BlackJack game = gameInstanceForTest.gameInstance;
+        TestInput input = gameInstanceForTest.input;
+
+        input.addIntegerValue(4);
+        input.addStringValue("Player name");
+
+        assertEquals(3, game.initiatePlayers().size());
+    }
+
 }

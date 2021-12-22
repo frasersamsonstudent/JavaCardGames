@@ -50,7 +50,7 @@ public class CardGame {
         }
     }
 
-    protected ArrayList<Player> initiatePlayers(){
+    public ArrayList<Player> initiatePlayers(){
         ArrayList<Player> players = new ArrayList<Player>();
         players.add(createHumanPlayer());
         createComputerPlayers(getNumberOfPlayers(), players);
